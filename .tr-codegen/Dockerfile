@@ -11,6 +11,12 @@ RUN npm run build
 
 # --- runtime stage ---
 FROM nginx:alpine
+
+RUN apk update && apk add --no-cache git
+
+# Verify git is installed
+RUN git --version
+
 # minimal nginx config
 COPY ./.tr-codegen/nginx.conf /etc/nginx/conf.d/default.conf
 # copy built static files
