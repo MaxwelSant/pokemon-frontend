@@ -3,6 +3,9 @@ import './App.css';
 import PokemonCard from './components/PokemonCard';
 import FilterBar from './components/FilterBar';
 import LoadingSpinner from './components/LoadingSpinner';
+import LoginPage from './components/LoginPage';
+import MockSuite from './components/MockSuite';
+import ErrorsPage from './components/ErrorsPage';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
@@ -17,6 +20,8 @@ function App() {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentPage, setCurrentPage] = useState('pokemon');
 
   // Fetch all Pokemon and types on component mount
   useEffect(() => {
@@ -94,22 +99,48 @@ function App() {
     });
   };
 
-  if (loading) {
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentPage('pokemon');
+  };
+
+  // Show login page if not logged in
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
+  if (loading && currentPage === 'pokemon') {
     return (
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <nav className="nav-menu">
+            <button onClick={() => setCurrentPage('pokemon')} className={currentPage === 'pokemon' ? 'active' : ''}>Pokemon</button>
+            <button onClick={() => setCurrentPage('suite')} className={currentPage === 'suite' ? 'active' : ''}>NEW_MOCK_SUITE</button>
+            <button onClick={() => setCurrentPage('errors')} className={currentPage === 'errors' ? 'active' : ''}>Errors</button>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          </nav>
         </header>
         <LoadingSpinner />
       </div>
     );
   }
 
-  if (error) {
+  if (error && currentPage === 'pokemon') {
     return (
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <nav className="nav-menu">
+            <button onClick={() => setCurrentPage('pokemon')} className={currentPage === 'pokemon' ? 'active' : ''}>Pokemon</button>
+            <button onClick={() => setCurrentPage('suite')} className={currentPage === 'suite' ? 'active' : ''}>NEW_MOCK_SUITE</button>
+            <button onClick={() => setCurrentPage('errors')} className={currentPage === 'errors' ? 'active' : ''}>Errors</button>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          </nav>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -124,43 +155,61 @@ function App() {
     );
   }
 
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'suite':
+        return <MockSuite />;
+      case 'errors':
+        return <ErrorsPage />;
+      case 'pokemon':
+      default:
+        return (
+          <main className="main-content">
+            <FilterBar
+              filters={filters}
+              types={types}
+              onFilterChange={handleFilterChange}
+              onClearFilters={clearFilters}
+            />
+
+            <div className="results-info">
+              <p>
+                Showing {filteredPokemons.length} of {pokemons.length} Pokemon
+              </p>
+            </div>
+
+            {filteredPokemons.length === 0 ? (
+              <div className="no-results">
+                <h3>No Pokemon found</h3>
+                <p>Try adjusting your filters to see more results.</p>
+                <button onClick={clearFilters} className="clear-button">
+                  Clear All Filters
+                </button>
+              </div>
+            ) : (
+              <div className="pokemon-grid">
+                {filteredPokemons.map(pokemon => (
+                  <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                ))}
+              </div>
+            )}
+          </main>
+        );
+    }
+  };
+
   return (
     <div className="app">
       <header className="app-header">
         <h1>Pokemon Explorer</h1>
-        <p>Discover and filter your favorite Pokemon!</p>
+        <nav className="nav-menu">
+          <button onClick={() => setCurrentPage('pokemon')} className={currentPage === 'pokemon' ? 'active' : ''}>Pokemon</button>
+          <button onClick={() => setCurrentPage('suite')} className={currentPage === 'suite' ? 'active' : ''}>NEW_MOCK_SUITE</button>
+          <button onClick={() => setCurrentPage('errors')} className={currentPage === 'errors' ? 'active' : ''}>Errors</button>
+          <button onClick={handleLogout} className="logout-btn">Logout</button>
+        </nav>
       </header>
-
-      <main className="main-content">
-        <FilterBar
-          filters={filters}
-          types={types}
-          onFilterChange={handleFilterChange}
-          onClearFilters={clearFilters}
-        />
-
-        <div className="results-info">
-          <p>
-            Showing {filteredPokemons.length} of {pokemons.length} Pokemon
-          </p>
-        </div>
-
-        {filteredPokemons.length === 0 ? (
-          <div className="no-results">
-            <h3>No Pokemon found</h3>
-            <p>Try adjusting your filters to see more results.</p>
-            <button onClick={clearFilters} className="clear-button">
-              Clear All Filters
-            </button>
-          </div>
-        ) : (
-          <div className="pokemon-grid">
-            {filteredPokemons.map(pokemon => (
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
-            ))}
-          </div>
-        )}
-      </main>
+      {renderPage()}
     </div>
   );
 }
