@@ -98,7 +98,7 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1>Pokemon Explorer</h1>
+          <h1>Pokemon Explorer v3</h1>
         </header>
         <LoadingSpinner />
       </div>
@@ -109,7 +109,7 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1>Pokemon Explorer</h1>
+          <h1>Pokemon Explorer v3</h1>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -127,7 +127,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Pokemon Explorer</h1>
+        <h1>Pokemon Explorer v3</h1>
         <p>Discover and filter your favorite Pokemon!</p>
       </header>
 

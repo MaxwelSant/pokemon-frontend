@@ -1,6 +1,6 @@
 {
-  "short_name": "Pokemon Explorer",
-  "name": "Pokemon Explorer - Filter and Browse Pokemon",
+  "short_name": "Pokemon Explorer v3",
+  "name": "Pokemon Explorer v3 - Filter and Browse Pokemon",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
