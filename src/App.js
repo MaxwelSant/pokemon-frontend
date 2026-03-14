@@ -110,16 +110,27 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p>Discover and filter your favorite Pokemon!</p>
         </header>
-        <div className="error-container">
-          <div className="error-message">
-            <h2>⚠️ Connection Error</h2>
-            <p>{error}</p>
-            <button onClick={() => window.location.reload()} className="retry-button">
-              Retry
-            </button>
+
+        <main className="main-content">
+          <FilterBar
+            filters={filters}
+            types={types}
+            onFilterChange={handleFilterChange}
+            onClearFilters={clearFilters}
+          />
+
+          <div className="error-container">
+            <div className="error-message">
+              <h2>⚠️ Connection Error</h2>
+              <p>{error}</p>
+              <button onClick={() => window.location.reload()} className="retry-button">
+                Retry
+              </button>
+            </div>
           </div>
-        </div>
+        </main>
       </div>
     );
   }
@@ -127,11 +138,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Pokemon Explorer v2</h1>
+        <h1>Pokemon Explorer</h1>
         <p>Discover and filter your favorite Pokemon!</p>
-        <div className="header-actions">
-          <button className="jira-link-button">Link Jira Issue</button>
-        </div>
       </header>
 
       <main className="main-content">
