@@ -105,25 +105,6 @@ function App() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="app">
-        <header className="app-header">
-          <h1>Pokemon Explorer</h1>
-        </header>
-        <div className="error-container">
-          <div className="error-message">
-            <h2>⚠️ Connection Error</h2>
-            <p>{error}</p>
-            <button onClick={() => window.location.reload()} className="retry-button">
-              Retry
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="app">
       <header className="app-header">
@@ -142,26 +123,40 @@ function App() {
           onClearFilters={clearFilters}
         />
 
-        <div className="results-info">
-          <p>
-            Showing {filteredPokemons.length} of {pokemons.length} Pokemon
-          </p>
-        </div>
-
-        {filteredPokemons.length === 0 ? (
-          <div className="no-results">
-            <h3>No Pokemon found</h3>
-            <p>Try adjusting your filters to see more results.</p>
-            <button onClick={clearFilters} className="clear-button">
-              Clear All Filters
-            </button>
+        {error ? (
+          <div className="error-container">
+            <div className="error-message">
+              <h2>⚠️ Connection Error</h2>
+              <p>{error}</p>
+              <button onClick={() => window.location.reload()} className="retry-button">
+                Retry
+              </button>
+            </div>
           </div>
         ) : (
-          <div className="pokemon-grid">
-            {filteredPokemons.map(pokemon => (
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
-            ))}
-          </div>
+          <>
+            <div className="results-info">
+              <p>
+                Showing {filteredPokemons.length} of {pokemons.length} Pokemon
+              </p>
+            </div>
+
+            {filteredPokemons.length === 0 ? (
+              <div className="no-results">
+                <h3>No Pokemon found</h3>
+                <p>Try adjusting your filters to see more results.</p>
+                <button onClick={clearFilters} className="clear-button">
+                  Clear All Filters
+                </button>
+              </div>
+            ) : (
+              <div className="pokemon-grid">
+                {filteredPokemons.map(pokemon => (
+                  <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </main>
     </div>
