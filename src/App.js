@@ -105,25 +105,6 @@ function App() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="app">
-        <header className="app-header">
-          <h1>Pokemon Explorer</h1>
-        </header>
-        <div className="error-container">
-          <div className="error-message">
-            <h2>⚠️ Connection Error</h2>
-            <p>{error}</p>
-            <button onClick={() => window.location.reload()} className="retry-button">
-              Retry
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="app">
       <header className="app-header">
@@ -141,6 +122,18 @@ function App() {
           onFilterChange={handleFilterChange}
           onClearFilters={clearFilters}
         />
+
+        {error && (
+          <div className="error-container">
+            <div className="error-message">
+              <h2>⚠️ Connection Error</h2>
+              <p>{error}</p>
+              <button onClick={() => window.location.reload()} className="retry-button">
+                Retry
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className="results-info">
           <p>
