@@ -111,15 +111,23 @@ function App() {
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
         </header>
-        <div className="error-container">
-          <div className="error-message">
-            <h2>⚠️ Connection Error</h2>
-            <p>{error}</p>
-            <button onClick={() => window.location.reload()} className="retry-button">
-              Retry
-            </button>
+        <main className="main-content">
+          <FilterBar
+            filters={filters}
+            types={types}
+            onFilterChange={handleFilterChange}
+            onClearFilters={clearFilters}
+          />
+          <div className="error-container">
+            <div className="error-message">
+              <h2>⚠️ Connection Error</h2>
+              <p>{error}</p>
+              <button onClick={() => window.location.reload()} className="retry-button">
+                Retry
+              </button>
+            </div>
           </div>
-        </div>
+        </main>
       </div>
     );
   }
