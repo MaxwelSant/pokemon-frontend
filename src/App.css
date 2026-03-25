@@ -34,6 +34,15 @@ body {
   opacity: 0.9;
 }
 
+.app-header .powered-by {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  opacity: 0.85;
+  margin-bottom: 0.3rem;
+}
+
 .header-actions {
   margin-top: 1rem;
 }
