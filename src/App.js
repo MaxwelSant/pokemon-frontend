@@ -99,8 +99,12 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="powered-by-sub">testRigor AI Agent</p>
         </header>
         <LoadingSpinner />
+        <footer className="app-footer">
+          <p>Powered by codeCake AI Agent</p>
+        </footer>
       </div>
     );
   }
@@ -110,6 +114,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="powered-by-sub">testRigor AI Agent</p>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -120,6 +125,9 @@ function App() {
             </button>
           </div>
         </div>
+        <footer className="app-footer">
+          <p>Powered by codeCake AI Agent</p>
+        </footer>
       </div>
     );
   }
@@ -129,6 +137,7 @@ function App() {
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
         <p>Discover and filter your favorite Pokemon!</p>
+        <p className="powered-by-sub">testRigor AI Agent</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
         </div>
@@ -164,6 +173,9 @@ function App() {
           </div>
         )}
       </main>
+      <footer className="app-footer">
+        <p>Powered by codeCake AI Agent</p>
+      </footer>
     </div>
   );
 }
