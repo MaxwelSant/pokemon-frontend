@@ -20,7 +20,7 @@ const FilterBar = ({ filters, types, onFilterChange, onClearFilters }) => {
         <input
           id="name-filter"
           type="text"
-          placeholder="Enter Pokemon name..."
+          placeholder="Enter pokemon name"
           value={filters.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
           className="filter-input"
