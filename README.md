@@ -4,7 +4,7 @@ A React-based web application for browsing and filtering Pokemon data.
 
 ## Features
 
-- 🔍 **Search by Name** - Find Pokemon by typing their name
+- 🔍 **Search by Pokemon Name** - Find Pokemon by typing their name
 - 🏷️ **Filter by Type** - Filter Pokemon by their elemental type
 - ⭐ **Legendary Filter** - Show only legendary or non-legendary Pokemon
 - 📱 **Responsive Design** - Works on desktop, tablet, and mobile
