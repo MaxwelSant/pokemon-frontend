@@ -107,3 +107,32 @@
   letter-spacing: 0.5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.love-button {
+  margin-top: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.love-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.love-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.4);
+}
+
+.love-button.loved {
+  background: linear-gradient(45deg, #e056fd, #c44569);
+  box-shadow: 0 2px 8px rgba(224, 86, 253, 0.3);
+}
