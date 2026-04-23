@@ -1,0 +1,96 @@
+/* JiraSettings.css
+ * Scoped styles for the "Add PR to Jira" settings panel.
+ * Designed to sit next to the existing `.jira-link-button` in the
+ * `.app-header` gradient (linear-gradient(90deg, #ff6b6b, #4ecdc4)).
+ */
+
+.jira-settings {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  color: white;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.jira-settings:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.jira-settings__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.jira-settings__checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #4ecdc4;
+  cursor: pointer;
+}
+
+.jira-settings__toggle-label {
+  font-weight: 500;
+}
+
+.jira-settings__field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.jira-settings__field-label {
+  font-weight: 500;
+  color: white;
+}
+
+.jira-settings__select {
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 10rem;
+}
+
+.jira-settings__select:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+}
+
+.jira-settings__select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive: stack the two controls vertically on narrow viewports. */
+@media (max-width: 600px) {
+  .jira-settings {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .jira-settings__field,
+  .jira-settings__toggle {
+    width: 100%;
+  }
+
+  .jira-settings__select {
+    flex: 1;
+  }
+}
