@@ -10,10 +10,9 @@ services:
       - "3002:80"
     networks:
       - pokemon-network
-    depends_on:
-      - main_app_pokemon-backend
 
   main_app_pokemon-backend:
+    profiles: ["backend"]
     build:
       context: ../../pokemon-backend
       dockerfile: .tr-codegen/Dockerfile
