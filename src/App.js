@@ -94,6 +94,27 @@ function App() {
     });
   };
 
+  const handleShare = () => {
+    const shareData = {
+      title: 'Pokemon Explorer',
+      text: 'Check out the Pokemon Explorer!',
+      url: window.location.href,
+    };
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      navigator.share(shareData).catch(() => {
+        // User dismissed or share failed; no-op.
+      });
+    } else if (
+      typeof navigator !== 'undefined' &&
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ) {
+      navigator.clipboard.writeText(window.location.href).catch(() => {
+        // Clipboard write failed; no-op.
+      });
+    }
+  };
+
   if (loading) {
     return (
       <div className="app">
@@ -131,6 +152,7 @@ function App() {
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
+          <button className="share-button" onClick={handleShare}>Share</button>
         </div>
       </header>
 
