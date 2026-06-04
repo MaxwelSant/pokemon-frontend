@@ -5,7 +5,6 @@ services:
     build:
       context: ..
       dockerfile: .tr-codegen/Dockerfile
-    image: pokemon-frontend:latest
     ports:
       - "3002:80"
     networks:
