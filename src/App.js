@@ -129,6 +129,7 @@ function App() {
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
         <p>Discover and filter your favorite Pokemon!</p>
+        <p className="failure-label">failure 1</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
         </div>
