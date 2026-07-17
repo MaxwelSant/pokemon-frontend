@@ -1,0 +1,25 @@
+.jira-issues-panel {
+  margin-top: 0.75rem;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.jira-issues-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.jira-issues-list {
+  list-style: none;
+  font-size: 0.8rem;
+  opacity: 0.95;
+}
+
+.jira-issue-item {
+  padding: 0.1rem 0;
+}
