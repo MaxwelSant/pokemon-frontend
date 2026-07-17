@@ -164,6 +164,7 @@ function App() {
           </div>
         )}
       </main>
+      <footer className="app-footer">failure 1</footer>
     </div>
   );
 }
