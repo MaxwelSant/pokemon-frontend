@@ -17,6 +17,7 @@ function App() {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [jiraStatus, setJiraStatus] = useState(null);
 
   // Fetch all Pokemon and types on component mount
   useEffect(() => {
@@ -49,6 +50,21 @@ function App() {
     };
 
     fetchInitialData();
+  }, []);
+
+  // Check Jira link status on component mount
+  useEffect(() => {
+    const checkJiraStatus = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/jira-status`);
+        const data = await response.json();
+        setJiraStatus(data);
+      } catch (err) {
+        setJiraStatus({ success: false, attempts: 1, message: 'Jira link check failed (failure 1)' });
+      }
+    };
+
+    checkJiraStatus();
   }, []);
 
   // Apply filters whenever filters change
@@ -94,6 +110,22 @@ function App() {
     });
   };
 
+  const handleLinkJiraIssue = async () => {
+    const issueKey = window.prompt('Enter Jira issue key (e.g. PROJ-123):');
+    if (!issueKey) return;
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/jira-link`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ issueKey })
+      });
+      const data = await response.json();
+      setJiraStatus(data);
+    } catch (err) {
+      setJiraStatus({ success: false, attempts: (jiraStatus?.attempts || 0) + 1, message: 'Jira link attempt failed' });
+    }
+  };
+
   if (loading) {
     return (
       <div className="app">
@@ -130,7 +162,10 @@ function App() {
         <h1>Pokemon Explorer v2</h1>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
-          <button className="jira-link-button">Link Jira Issue</button>
+          <button className="jira-link-button" onClick={handleLinkJiraIssue}>Link Jira Issue</button>
+          {jiraStatus && !jiraStatus.success && (
+            <p className="jira-status-message" role="alert">{jiraStatus.message}</p>
+          )}
         </div>
       </header>
 
