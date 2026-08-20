@@ -4,7 +4,7 @@ services:
   main_app_web:
     build:
       context: ..
-      dockerfile: .tr-codegen/Dockerfile
+      dockerfile: codeCake/Dockerfile
     image: pokemon-frontend:latest
     ports:
       - "3002:80"
@@ -16,7 +16,7 @@ services:
   main_app_pokemon-backend:
     build:
       context: ../../pokemon-backend
-      dockerfile: .tr-codegen/Dockerfile
+      dockerfile: codeCake/Dockerfile
     container_name: main_app_pokemon
     ports:
       - "3001:3001"

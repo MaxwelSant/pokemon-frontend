@@ -12,7 +12,7 @@ RUN npm run build
 # --- runtime stage ---
 FROM nginx:alpine
 # minimal nginx config
-COPY ./.tr-codegen/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./codeCake/nginx.conf /etc/nginx/conf.d/default.conf
 # copy built static files
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/build/ /usr/share/nginx/html/
