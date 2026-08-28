@@ -99,6 +99,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="build-marker">testRigor 42</p>
         </header>
         <LoadingSpinner />
       </div>
@@ -110,6 +111,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="build-marker">testRigor 42</p>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -129,6 +131,7 @@ function App() {
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
         <p>Discover and filter your favorite Pokemon!</p>
+        <p className="build-marker">testRigor 42</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
         </div>
