@@ -164,6 +164,10 @@ function App() {
           </div>
         )}
       </main>
+
+      <footer className="app-footer">
+        <p className="build-diagnostics">failure 1</p>
+      </footer>
     </div>
   );
 }
