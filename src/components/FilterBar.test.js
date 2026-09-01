@@ -1,0 +1,29 @@
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import FilterBar from './FilterBar';
+
+describe('FilterBar name-search label', () => {
+  const renderMarkup = () =>
+    renderToStaticMarkup(
+      <FilterBar
+        filters={{ name: '', type: '', legendary: '' }}
+        types={[]}
+        onFilterChange={() => {}}
+        onClearFilters={() => {}}
+      />
+    );
+
+  test("renders the label 'Search by Pokemon Name:'", () => {
+    expect(renderMarkup()).toContain('Search by Pokemon Name:');
+  });
+
+  test("no longer renders the old '>Search by Name:<' label", () => {
+    expect(renderMarkup()).not.toContain('>Search by Name:<');
+  });
+
+  test('sibling labels remain present', () => {
+    const markup = renderMarkup();
+    expect(markup).toContain('Filter by Type:');
+    expect(markup).toContain('Legendary Status:');
+  });
+});
