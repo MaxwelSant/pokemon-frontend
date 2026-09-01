@@ -101,6 +101,7 @@ function App() {
           <h1>Pokemon Explorer</h1>
         </header>
         <LoadingSpinner />
+        <footer className="app-footer">codecake ai agent</footer>
       </div>
     );
   }
@@ -120,6 +121,7 @@ function App() {
             </button>
           </div>
         </div>
+        <footer className="app-footer">codecake ai agent</footer>
       </div>
     );
   }
@@ -164,6 +166,7 @@ function App() {
           </div>
         )}
       </main>
+      <footer className="app-footer">codecake ai agent</footer>
     </div>
   );
 }

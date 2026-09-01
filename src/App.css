@@ -13,6 +13,8 @@ body {
 
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-header {
@@ -61,6 +63,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  flex: 1;
 }
 
 .results-info {
@@ -123,6 +126,7 @@ body {
   align-items: center;
   min-height: 60vh;
   padding: 2rem;
+  flex: 1;
 }
 
 .error-message {
@@ -161,6 +165,16 @@ body {
   background: #45b7aa;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  margin-top: auto;
 }
 
 /* Responsive design */
