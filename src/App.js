@@ -3,6 +3,7 @@ import './App.css';
 import PokemonCard from './components/PokemonCard';
 import FilterBar from './components/FilterBar';
 import LoadingSpinner from './components/LoadingSpinner';
+import JiraSettings from './components/JiraSettings';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
@@ -98,7 +99,13 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1>Pokemon Explorer</h1>
+          <h1>Pokemon Explorer v2</h1>
+          <p>Discover and filter your favorite Pokemon!</p>
+          <div className="header-actions">
+            {/* Keep the "Link Jira Issue" descriptor reachable in every render branch
+                so the button is not hidden behind the loading spinner. */}
+            <button className="jira-link-button">Link Jira Issue</button>
+          </div>
         </header>
         <LoadingSpinner />
       </div>
@@ -109,7 +116,13 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1>Pokemon Explorer</h1>
+          <h1>Pokemon Explorer v2</h1>
+          <p>Discover and filter your favorite Pokemon!</p>
+          <div className="header-actions">
+            {/* Keep the "Link Jira Issue" descriptor reachable in every render branch
+                so the button is not hidden behind the error screen. */}
+            <button className="jira-link-button">Link Jira Issue</button>
+          </div>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -131,6 +144,7 @@ function App() {
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
+          <JiraSettings />
         </div>
       </header>
 

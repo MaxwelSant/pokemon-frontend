@@ -1,0 +1,66 @@
+/* JiraSettings.css */
+
+.jira-settings {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+.jira-settings-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.jira-settings-toggle input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: #4ecdc4;
+}
+
+.jira-settings-toggle-label {
+  font-weight: 500;
+}
+
+.jira-settings-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.jira-settings-field-label {
+  font-weight: 500;
+}
+
+.jira-settings-select {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.jira-settings-select:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.jira-settings-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
