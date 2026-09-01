@@ -163,6 +163,19 @@ body {
   box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
 }
 
+.app-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.app-footer p {
+  margin: 0;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .app-header h1 {
