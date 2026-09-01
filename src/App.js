@@ -99,6 +99,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <span className="powered-by">codeCake AI Agent</span>
         </header>
         <LoadingSpinner />
       </div>
@@ -110,6 +111,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <span className="powered-by">codeCake AI Agent</span>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -128,6 +130,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
+        <span className="powered-by">codeCake AI Agent</span>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
