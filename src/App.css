@@ -34,6 +34,14 @@ body {
   opacity: 0.9;
 }
 
+.app-header .powered-by {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 0.3rem;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
 .header-actions {
   margin-top: 1rem;
 }
