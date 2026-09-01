@@ -15,12 +15,12 @@ const FilterBar = ({ filters, types, onFilterChange, onClearFilters }) => {
     <div className="filter-bar">
       <div className="filter-section">
         <label htmlFor="name-filter" className="filter-label">
-          Search by Name:
+          Search by Pokemon Name:
         </label>
         <input
           id="name-filter"
           type="text"
-          placeholder="Enter Pokemon name..."
+          placeholder="Enter pokemon name"
           value={filters.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
           className="filter-input"
@@ -29,7 +29,7 @@ const FilterBar = ({ filters, types, onFilterChange, onClearFilters }) => {
 
       <div className="filter-section">
         <label htmlFor="type-filter" className="filter-label">
-          Filter by Type:
+          Filter by Pokemon Type:
         </label>
         <select
           id="type-filter"
@@ -48,7 +48,7 @@ const FilterBar = ({ filters, types, onFilterChange, onClearFilters }) => {
 
       <div className="filter-section">
         <label htmlFor="legendary-filter" className="filter-label">
-          Legendary Status:
+          Pokemon legendary status
         </label>
         <select
           id="legendary-filter"
