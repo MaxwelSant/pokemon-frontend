@@ -7,6 +7,12 @@ import LoadingSpinner from './components/LoadingSpinner';
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 function App() {
+  const appFooter = (
+    <footer className="app-footer">
+      <p>Powered by codeCake AI Agent</p>
+    </footer>
+  );
+
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [types, setTypes] = useState([]);
@@ -101,6 +107,7 @@ function App() {
           <h1>Pokemon Explorer</h1>
         </header>
         <LoadingSpinner />
+        {appFooter}
       </div>
     );
   }
@@ -120,6 +127,7 @@ function App() {
             </button>
           </div>
         </div>
+        {appFooter}
       </div>
     );
   }
@@ -164,6 +172,7 @@ function App() {
           </div>
         )}
       </main>
+      {appFooter}
     </div>
   );
 }
