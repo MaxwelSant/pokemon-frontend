@@ -99,6 +99,8 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="testrigor-header" style={{textTransform: 'uppercase'}}>testRigor header</p>
+          <p className="hi-codecake">hi codeCake</p>
         </header>
         <LoadingSpinner />
       </div>
@@ -110,6 +112,8 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="testrigor-header" style={{textTransform: 'uppercase'}}>testRigor header</p>
+          <p className="hi-codecake">hi codeCake</p>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -128,6 +132,8 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
+        <p className="testrigor-header" style={{textTransform: 'uppercase'}}>testRigor header</p>
+        <p className="hi-codecake">hi codeCake</p>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
