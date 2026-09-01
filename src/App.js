@@ -131,6 +131,7 @@ function App() {
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
+          <button className="share-button" type="button">Share</button>
         </div>
       </header>
 
