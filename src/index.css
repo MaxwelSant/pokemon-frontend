@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.build-marker {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  text-align: center;
+  padding: 4px 0;
+  color: #666;
+  background: #fafafa;
+}
