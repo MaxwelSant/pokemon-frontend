@@ -14,5 +14,11 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- Required by TestRigor smoke test (TR-16734): must stay outside #root so it
+         renders on every route/state, including nginx's SPA fallback for /login. -->
+    <div
+      id="build-marker"
+      style="position:fixed;bottom:4px;right:6px;font-size:11px;color:rgba(0,0,0,0.35);z-index:9999;pointer-events:none;"
+    >testRigor 42</div>
   </body>
 </html>

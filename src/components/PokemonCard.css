@@ -64,6 +64,8 @@
 .type-dragon { background: linear-gradient(45deg, #a29bfe, #6c5ce7); }
 .type-flying { background: linear-gradient(45deg, #fd79a8, #fdcb6e); }
 .type-poison { background: linear-gradient(45deg, #6c5ce7, #a29bfe); }
+.type-fighting { background: linear-gradient(45deg, #d63031, #e17055); }
+.type-steel { background: linear-gradient(45deg, #b2bec3, #636e72); }
 
 .pokemon-id {
   font-size: 0.9rem;
