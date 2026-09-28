@@ -1,0 +1,31 @@
+/* Pagination.css */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.pagination-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.pagination-button:hover:not(:disabled),
+.pagination-button:focus-visible {
+  background: rgba(255, 255, 255, 0.35);
+  outline: none;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
