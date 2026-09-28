@@ -3,6 +3,7 @@ import './App.css';
 import PokemonCard from './components/PokemonCard';
 import FilterBar from './components/FilterBar';
 import LoadingSpinner from './components/LoadingSpinner';
+import BuildMarker from './components/BuildMarker';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
@@ -99,6 +100,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <BuildMarker />
         </header>
         <LoadingSpinner />
       </div>
@@ -110,6 +112,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <BuildMarker />
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -129,6 +132,7 @@ function App() {
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
         <p>Discover and filter your favorite Pokemon!</p>
+        <BuildMarker />
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
         </div>
