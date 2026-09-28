@@ -1,0 +1,98 @@
+/* SavedFilters.css (.action-button styles come from FilterActions.css) */
+.saved-filters {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.saved-filters-heading {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+}
+
+.saved-filters-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saved-filters-label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.saved-filters-input {
+  flex: 1 1 200px;
+  padding: 0.6rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.saved-filters-input:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3);
+}
+
+.saved-filters-message {
+  margin: 0.5rem 0 0;
+  min-height: 1.2em;
+  font-size: 0.9rem;
+}
+
+.saved-filters-empty {
+  margin: 0.5rem 0 0;
+  color: #555;
+}
+
+.saved-filters-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.saved-filter-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.saved-filter-apply {
+  background: #4ecdc4;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.saved-filter-summary {
+  color: #555;
+  font-size: 0.85rem;
+  flex: 1 1 auto;
+}
+
+.saved-filter-delete {
+  background: none;
+  border: 1px solid #c62828;
+  color: #c62828;
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+
+.saved-filter-apply:focus-visible,
+.saved-filter-delete:focus-visible {
+  outline: 3px solid #333;
+  outline-offset: 2px;
+}

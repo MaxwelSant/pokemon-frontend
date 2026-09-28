@@ -34,6 +34,12 @@ body {
   opacity: 0.9;
 }
 
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
 .header-actions {
   margin-top: 1rem;
 }

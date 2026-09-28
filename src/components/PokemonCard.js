@@ -1,9 +1,15 @@
 import React from 'react';
 import './PokemonCard.css';
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({
+  pokemon,
+  isFavorite = false,
+  onToggleFavorite,
+  isCompared = false,
+  onToggleCompare
+}) => {
   return (
-    <div className={`pokemon-card ${pokemon.legendary ? 'legendary' : ''}`}>
+    <div className={`pokemon-card ${pokemon.legendary ? 'legendary' : ''}${isFavorite ? ' favorite' : ''}`}>
       <div className="pokemon-image-container">
         <img 
           src={pokemon.image} 
@@ -31,6 +37,33 @@ const PokemonCard = ({ pokemon }) => {
         </div>
         
         <div className="pokemon-id">#{pokemon.id.toString().padStart(3, '0')}</div>
+
+        {(onToggleFavorite || onToggleCompare) && (
+          <div className="pokemon-card-actions">
+            {onToggleFavorite && (
+              <button
+                type="button"
+                className={`card-action-button favorite-button${isFavorite ? ' active' : ''}`}
+                aria-pressed={isFavorite}
+                aria-label={`Favorite ${pokemon.name}`}
+                onClick={() => onToggleFavorite(pokemon.id)}
+              >
+                <span aria-hidden="true">{isFavorite ? '★' : '☆'}</span> Favorite
+              </button>
+            )}
+            {onToggleCompare && (
+              <button
+                type="button"
+                className={`card-action-button compare-button${isCompared ? ' active' : ''}`}
+                aria-pressed={isCompared}
+                aria-label={`Compare ${pokemon.name}`}
+                onClick={() => onToggleCompare(pokemon.id)}
+              >
+                Compare
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
