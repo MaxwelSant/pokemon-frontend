@@ -1,0 +1,42 @@
+/* FilterActions.css */
+.filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.action-button {
+  background: white;
+  color: #333;
+  border: 2px solid #4ecdc4;
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover:not(:disabled) {
+  background: #4ecdc4;
+  transform: translateY(-1px);
+}
+
+.action-button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filter-actions-status {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  min-height: 1.2em;
+}
