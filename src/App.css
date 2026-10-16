@@ -21,6 +21,7 @@ body {
   padding: 2rem 1rem;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .app-header h1 {
@@ -32,6 +33,26 @@ body {
 .app-header p {
   font-size: 1.1rem;
   opacity: 0.9;
+}
+
+.app-title-group {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: #1f5c5c;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.app-title,
+.app-header .app-title-secondary {
+  margin: 0;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  opacity: 1;
 }
 
 .header-actions {
@@ -167,6 +188,17 @@ body {
 @media (max-width: 768px) {
   .app-header h1 {
     font-size: 2rem;
+  }
+
+  .app-title-group {
+    position: static;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .app-title,
+  .app-header .app-title-secondary {
+    font-size: 1.5rem;
   }
   
   .pokemon-grid {

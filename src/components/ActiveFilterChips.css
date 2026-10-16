@@ -1,0 +1,59 @@
+/* ActiveFilterChips.css */
+.active-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+.active-filter-chips:empty {
+  display: none;
+}
+
+.active-filter-chips-label {
+  font-weight: bold;
+}
+
+.filter-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border-radius: 999px;
+  padding: 0.3rem 0.4rem 0.3rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.filter-chip-remove {
+  border: none;
+  background: #e0e0e0;
+  color: #333;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.filter-chip-remove:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+.filter-chip-remove:focus-visible {
+  outline: 3px solid #4ecdc4;
+  outline-offset: 2px;
+}
