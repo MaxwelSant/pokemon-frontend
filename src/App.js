@@ -127,9 +127,19 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Pokemon Explorer v2</h1>
+        <h1>testRigor 42</h1>
+        <h2 className="app-subtitle">Pokemon Explorer v2</h2>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
+          <button
+            type="button"
+            className="pokemon-nav-button"
+            onClick={() =>
+              document.querySelector('.main-content')?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            Pokmon
+          </button>
           <button className="jira-link-button">Link Jira Issue</button>
         </div>
       </header>
