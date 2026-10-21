@@ -3,6 +3,7 @@ import './App.css';
 import PokemonCard from './components/PokemonCard';
 import FilterBar from './components/FilterBar';
 import LoadingSpinner from './components/LoadingSpinner';
+import { nameMatchesQuery } from './utils/nameMatch';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
@@ -59,7 +60,7 @@ function App() {
       // Filter by name
       if (filters.name) {
         filtered = filtered.filter(pokemon =>
-          pokemon.name.toLowerCase().includes(filters.name.toLowerCase())
+          nameMatchesQuery(pokemon.name, filters.name)
         );
       }
 
@@ -98,7 +99,7 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1>Pokemon Explorer</h1>
+          <h1>testRigor 42</h1>
         </header>
         <LoadingSpinner />
       </div>
@@ -109,7 +110,7 @@ function App() {
     return (
       <div className="app">
         <header className="app-header">
-          <h1>Pokemon Explorer</h1>
+          <h1>testRigor 42</h1>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -127,7 +128,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Pokemon Explorer v2</h1>
+        <h1>testRigor 42</h1>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
