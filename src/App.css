@@ -29,6 +29,12 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.app-header .app-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
 .app-header p {
   font-size: 1.1rem;
   opacity: 0.9;
