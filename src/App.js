@@ -6,6 +6,31 @@ import LoadingSpinner from './components/LoadingSpinner';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
+const APP_TITLE = 'testRigor 42';
+
+// Levenshtein distance, used to tolerate small typos in the type filter
+const editDistance = (a, b) => {
+  const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+    }
+  }
+  return dp[a.length][b.length];
+};
+
+const typeMatches = (pokemonType, query) => {
+  const t = pokemonType.toLowerCase();
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  return t.includes(q) || (q.length >= 4 && editDistance(t, q) <= 1);
+};
+
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemons] = useState([]);
@@ -17,6 +42,10 @@ function App() {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    document.title = APP_TITLE;
+  }, []);
 
   // Fetch all Pokemon and types on component mount
   useEffect(() => {
@@ -66,7 +95,7 @@ function App() {
       // Filter by type
       if (filters.type) {
         filtered = filtered.filter(pokemon =>
-          pokemon.type.some(t => t.toLowerCase() === filters.type.toLowerCase())
+          pokemon.type.some(t => typeMatches(t, filters.type))
         );
       }
 
@@ -99,6 +128,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="app-title">{APP_TITLE}</p>
         </header>
         <LoadingSpinner />
       </div>
@@ -110,6 +140,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <p className="app-title">{APP_TITLE}</p>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -128,6 +159,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
+        <p className="app-title">{APP_TITLE}</p>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
