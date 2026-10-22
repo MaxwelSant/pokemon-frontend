@@ -6,6 +6,26 @@ import LoadingSpinner from './components/LoadingSpinner';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
+// Classic dynamic-programming edit distance, used to tolerate typos in type queries.
+const levenshtein = (a, b) => {
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const curr = [i];
+    for (let j = 1; j <= b.length; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+    }
+    prev = curr;
+  }
+  return prev[b.length];
+};
+
+// Both arguments must already be trimmed and lowercased.
+const matchesTypeQuery = (type, query) =>
+  type === query ||
+  type.startsWith(query) ||
+  (query.length >= 4 && levenshtein(type, query) <= 1);
+
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemons] = useState([]);
@@ -65,9 +85,12 @@ function App() {
 
       // Filter by type
       if (filters.type) {
-        filtered = filtered.filter(pokemon =>
-          pokemon.type.some(t => t.toLowerCase() === filters.type.toLowerCase())
-        );
+        const query = filters.type.trim().toLowerCase();
+        if (query) {
+          filtered = filtered.filter(pokemon =>
+            pokemon.type.some(t => matchesTypeQuery(t.toLowerCase(), query))
+          );
+        }
       }
 
       // Filter by legendary status
@@ -128,6 +151,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
+        <h2 className="app-subtitle">testRigor 42</h2>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
