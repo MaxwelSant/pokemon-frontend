@@ -5,6 +5,7 @@ import FilterBar from './components/FilterBar';
 import LoadingSpinner from './components/LoadingSpinner';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const APP_TITLE_TAG = 'testRigor 42';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -99,6 +100,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <h2 className="app-title-tag">{APP_TITLE_TAG}</h2>
         </header>
         <LoadingSpinner />
       </div>
@@ -110,6 +112,7 @@ function App() {
       <div className="app">
         <header className="app-header">
           <h1>Pokemon Explorer</h1>
+          <h2 className="app-title-tag">{APP_TITLE_TAG}</h2>
         </header>
         <div className="error-container">
           <div className="error-message">
@@ -128,6 +131,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Pokemon Explorer v2</h1>
+        <h2 className="app-title-tag">{APP_TITLE_TAG}</h2>
         <p>Discover and filter your favorite Pokemon!</p>
         <div className="header-actions">
           <button className="jira-link-button">Link Jira Issue</button>
