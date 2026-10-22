@@ -1,7 +1,7 @@
 import React from 'react';
 import './FilterBar.css';
 
-const FilterBar = ({ filters, types, onFilterChange, onClearFilters }) => {
+const FilterBar = ({ filters, onFilterChange, onClearFilters }) => {
   const handleInputChange = (field, value) => {
     onFilterChange({
       ...filters,
@@ -31,19 +31,14 @@ const FilterBar = ({ filters, types, onFilterChange, onClearFilters }) => {
         <label htmlFor="type-filter" className="filter-label">
           Filter by Type:
         </label>
-        <select
+        <input
           id="type-filter"
+          type="text"
+          placeholder="Enter type..."
           value={filters.type}
           onChange={(e) => handleInputChange('type', e.target.value)}
-          className="filter-select"
-        >
-          <option value="">All Types</option>
-          {types.map(type => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
+          className="filter-input"
+        />
       </div>
 
       <div className="filter-section">

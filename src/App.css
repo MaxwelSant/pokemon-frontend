@@ -29,6 +29,12 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.app-header .app-subtitle {
+  font-size: 1.25rem;
+  margin: 0.25rem 0 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 .app-header p {
   font-size: 1.1rem;
   opacity: 0.9;
